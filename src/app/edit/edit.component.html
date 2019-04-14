@@ -1,0 +1,30 @@
+<div class="container">
+  <br/>
+  <div class="row">
+      <div class="col-12">
+        <h5>Editar dados</h5>
+        <br>
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Titulo</label>
+            <input type="text" formControlName="filme" placeholder="Nome" class="form-control form-control-lg"/>
+          </div>
+          <div class="form-group">
+            <label>Sinopse</label>
+            <textarea placeholder="Sinopse" formControlName="descricao" class="form-control form-control-lg"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Gêneros</label>
+            <input type="text" placeholder="Gênero" formControlName="genero" class="form-control form-control-lg"/>
+          </div>
+          <div class="form-group">
+            <label>Produtoras</label>
+            <input type="text" placeholder="Produtora" formControlName="produtora" class="form-control form-control-lg"/>
+          </div>
+          <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block">Salvar</button>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
