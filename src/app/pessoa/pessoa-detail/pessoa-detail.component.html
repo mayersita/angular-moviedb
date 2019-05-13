@@ -1,0 +1,33 @@
+<div class="row" *ngIf= "pessoa">
+  <div class="col-12 col-md-4">
+    <div class="card">
+      <img class="card-img" [src]="getPessoaImage(pessoa)">
+    </div>
+  </div>
+  <div class="col-12 col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">{{ pessoa.nome }} ({{ pessoa.tipoPessoa }})
+            <a (click)="goEdit(pessoa)">
+              <span class = "btn btn-primary btn-sm float-right">Editar</span>
+            </a>
+            <a (click)="goDelete(pessoa.id,pessoa.nome)">
+              <span class = "btn btn-primary btn-sm float-right">Deletar</span>
+            </a>
+        </h5>
+      </div>
+      <div class="card-body">
+        <p class="card-title text-justify"><strong>Cidade Natal:</strong> {{ pessoa.cidadeNatal }}</p>
+        <p class="card-title text-justify"><strong>Gênero:</strong> {{ pessoa.genero }}</p>
+        <p class="card-title text-justify"><strong>Altura:</strong> {{ pessoa.altura }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="row mt-2">
+      <div class="col-12 col-md-3" *ngFor="let participacao of participacoes">
+          <app-atuacao-pessoa [participacao]="participacao"></app-atuacao-pessoa>
+      </div>
+    </div>
+  </div>
+</div>

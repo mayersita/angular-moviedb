@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from '../services/base/base.service';
+import { Serie } from '../models/serie';
+import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class SerieService extends BaseService {
@@ -10,15 +13,26 @@ export class SerieService extends BaseService {
   }
 
   getDiscover() {
-    return this._httpClient.get(`${this.URL}discover/tv?language=pt-BR`)
+    return this._httpClient.get(`${this.URL}series`)
   }
 
-  getById(id: string) {
-    return this._httpClient.get(`${this.URL}tv/${id}?language=pt-BR`)
+  getSeries() : Observable <Serie[]>{
+    return this._httpClient.get<Serie[]>(`${this.URL}series`).pipe(
+    map(res => res),
+    catchError(err=>Observable.throw(err.message))
+    )   
+  }
+
+  getById(id: string): Observable<Serie> {
+    return this._httpClient.get<Serie>(`${this.URL}series/${id}`);
   }
 
   updateById(id: string, value) {
-    console.log(`Atualizando a serie de id : ${id} com os valores: ${JSON.stringify(value)}`);
+    return this._httpClient.put(`${this.URL}series/editar/${id}`,value);
+  }
+
+  deleteByID(id: string) {
+    return this._httpClient.delete(`${this.URL}series/${id}`);
   }
 
 }

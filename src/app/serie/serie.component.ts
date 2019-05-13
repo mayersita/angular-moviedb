@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SerieService } from './serie.service';
+import { Serie } from '../models/serie';
 
 @Component({
   selector: 'app-serie',
@@ -11,12 +12,12 @@ export class SerieComponent implements OnInit {
   constructor(private _serieService: SerieService,
     private _router: Router) { }
 
-  series = [];
+  series : Serie[];
 
   ngOnInit() {
-    this._serieService.getDiscover().subscribe(
+    this._serieService.getSeries().subscribe(
       response => {
-        this.series = response['results'];
+        this.series = response;
       }
     )
   }

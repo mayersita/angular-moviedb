@@ -1,8 +1,9 @@
 <header class="navbar navbar-expand navbar-dark px-4 flex-column flex-md-row">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
   <a class="navbar-brand mr-md-2 mr-0" routerLink="/" aria-label="NG Bootstrap" (click)="navbarCollapsed = true">
-    <img src="../assets/movie.png" class="img-logo" alt="">
-    <span class="ml-2 d-xl-none d-lg-none d-md-none d-inline">ieie DB</span>
+    <img src="../assets/gatinhoCinema.png" class="img-logo" alt="">
+    <span class="ml-2 d-xl-none d-lg-none d-md-none d-inline">Projeto Hub</span>
   </a>
 
   <div class="navbar-nav-scroll" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}" id="navbarNavDropdown" *ngIf="logged"> 
@@ -13,11 +14,16 @@
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/series']" (click)="navbarCollapsed = true">Series</a>
       </li>
-    </ul>
-  </div>
-
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['/pessoas']" (click)="navbarCollapsed = true">Pessoas</a>
+      </li>
+    </ul>  
+  </div>  
 </header>
+
 &nbsp;
 <div class="container">
-  <router-outlet></router-outlet>
+  <body>
+    <router-outlet></router-outlet>
+  </body>
 </div>

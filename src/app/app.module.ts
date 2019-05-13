@@ -1,3 +1,5 @@
+import { AtuacaoService } from './atuacao/atuacao.service';
+import { PessoaService } from './pessoa/pessoa.service';
 import { SerieService } from './serie/serie.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,8 +15,10 @@ import { AccountGuard } from './guards/account.guard';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { LoginComponent } from './login/login.component';
-import { EditComponent } from './edit/edit.component';
 import { MovieService } from './movie/movie.service';
+import { SearchFilterPipe } from './search-filter.pipe';
+import { SearchFilterSPipe } from './search-filter-s.pipe';
+import { SearchFilterXPipe } from './search-filter-x.pipe';
 
 
 
@@ -22,7 +26,6 @@ import { MovieService } from './movie/movie.service';
   declarations: [
     AppComponent,
     LoginComponent,
-    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +42,11 @@ import { MovieService } from './movie/movie.service';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     SerieService,
-    MovieService
+    MovieService,
+    PessoaService,
+    AtuacaoService
   ],
+  exports:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

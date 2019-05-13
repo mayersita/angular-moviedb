@@ -1,32 +1,38 @@
-<div class="row">
+<div class="row pb-4" *ngIf="serie">
   <div class="col-12 col-md-4">
     <div class="card">
-      <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ movie.poster_path }}" alt="">
+      <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ serie.poster_path }}" alt="">
     </div>
   </div>
-  &nbsp;
-  <div class="col-12 col-md-7">
+  <div class="col-12 col-md-8">
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title">{{ movie?.original_name }} ({{ movie?.first_air_date | date: 'yyyy'}})
-            <a [routerLink] = "['/editar','serie', movie.id]">
+        <h5 class="card-title">{{ serie.titulo }} ({{ serie.anoLancamento | date: 'yyyy'}})
+            <a (click)="goEdit(serie)">
               <span class = "btn btn-primary btn-sm float-right">Editar</span>
+            </a>
+            <a (click)="goDelete(serie.id,serie.titulo)">
+              <span class = "btn btn-primary btn-sm float-right">Deletar</span>
             </a>
         </h5>
       </div>
       <div class="card-body">
-        <p class="card-title text-justify"><strong>Sinopse:</strong> {{ movie?.overview }}</p>
-        <p><strong>Gêneros:</strong> </p>
-        <div class="d-inline-block" *ngFor="let genre of movie?.genres">
-          <span class="badge badge-pill badge-primary">{{ genre?.name }}</span>
-        </div>
-        <br /> <br />
-        <p><strong>Produtoras:</strong> </p>
-        <div class="d-inline-block" *ngFor="let company of movie?.production_companies">
-          <img src="https://image.tmdb.org/t/p/w50_and_h50_bestv2{{ company.logo_path }}" class="img-thumbnail"
-            alt="">&nbsp;
-        </div>
+        <p class="card-title text-justify"><strong>Sinopse:</strong> {{ serie.sinopse }}</p>
+        <p class="card-title text-justify"><strong>Generos:</strong> {{ serie.genero }}</p>
+        <p class="card-title text-justify"><strong>País Origem:</strong> {{ serie.paisOrigem }}</p>
+        <p class="card-title text-justify"><strong>Ano de Lançamento:</strong> {{ serie.anoLancamento | date: 'yyyy' }}</p>
+        <p class="card-title text-justify"><strong>Duração:</strong> {{ serie.duracao }} min</p>
+        <p class="card-title text-justify"><strong>Lingua:</strong> {{ serie.lingua }}</p>
+        <p class="card-title text-justify"><strong>Nº Temporadas:</strong> {{ serie.temporadas }}</p>
       </div>
     </div>
   </div>
+  <div class="col-12">
+      <h2 class="mt-4">Elenco</h2>
+      <div class="row">
+        <div class="col-12 col-md-3" *ngFor="let atuacao of elenco">
+            <hub-atuacao-elenco [atuacao]="atuacao"></hub-atuacao-elenco>
+        </div>
+      </div>  
+    </div>
 </div>

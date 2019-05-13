@@ -1,9 +1,9 @@
 header.navbar {
-    background: linear-gradient(135deg, #0143a3, #0273d4);
+    background: linear-gradient(135deg, hsl(304, 45%, 27%), #e046b2);
   }
 
 .img-logo {
-    width:30px;
+    width:60px;
 }
 
 .card {

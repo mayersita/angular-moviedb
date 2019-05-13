@@ -1,0 +1,34 @@
+<div class="container">
+    <br/>
+    <div class="row">
+        <div class="col-12">
+          <h5>Editar dados</h5>
+          <br>
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <label>Nome</label>
+                  <input type="text" placeholder="Nome" formControlName="nome" class="form-control form-control-lg"/>
+              </div>
+              <div class="form-group">
+                  <label>Cidade Natal</label>
+                  <input type="text" placeholder="cidade Natal" formControlName="cidadeNatal" class="form-control form-control-lg"/>
+              </div>
+              <div class="form-group">
+                  <label>Genero</label>
+                  <input type="text" placeholder="Genero" formControlName="genero" class="form-control form-control-lg"/>
+              </div>
+              <div class="form-group">
+                  <label>Tipo de Pessoa</label>
+                  <input type="text" placeholder="Tipo de Pessoa" formControlName="tipoPessoa" class="form-control form-control-lg"/>
+              </div>
+              <div class="form-group">
+                  <label>Altura</label>
+                  <input type="text" placeholder="Altura" formControlName="altura" class="form-control form-control-lg"/>
+              </div>
+              <div class="form-group">
+                  <button class="btn btn-primary btn-lg btn-block">Salvar</button>
+              </div>
+          </form>
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,46 @@
+<div class="container">
+    <br/>
+    <div class="row">
+        <div class="col-12">
+          <h5>Editar dados</h5>
+          <br>
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Titulo</label>
+              <input type="text" formControlName="titulo" placeholder="Titulo" class="form-control form-control-lg"/>
+            </div>
+            <div class="form-group">
+              <label>Sinopse</label>
+              <textarea placeholder="Sinopse" formControlName="descricao" class="form-control form-control-lg"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Gêneros</label>
+              <input type="text" placeholder="Gênero" formControlName="genero" class="form-control form-control-lg"/>
+            </div>
+            <div class="form-group">
+              <label>País Origem</label>
+              <input type="text" placeholder="Pais Origem" formControlName="paisOrigem" class="form-control form-control-lg"/>
+            </div>
+            <div class="form-group">
+                <label>Ano de Lançamento</label>
+                <input type="text" placeholder="Ano de Lançamento" formControlName="anoLancamento" class="form-control form-control-lg"/>
+            </div>
+            <div class="form-group">
+                <label>Lingua</label>
+                <input type="text" placeholder="Lingua" formControlName="lingua" class="form-control form-control-lg"/>
+            </div>
+            <div class="form-group">
+                <label>Duração</label>
+                <input type="text" placeholder="Duração" formControlName="duracao" class="form-control form-control-lg"/>
+            </div>
+            <div class="form-group">
+                <label>Temporadas</label>
+                <input type="text" placeholder="Temporadas" formControlName="temporadas" class="form-control form-control-lg"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg btn-block">Salvar</button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>

@@ -1,22 +1,30 @@
+import { AppModule } from './../app.module';
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
+import { AtuacaoModule } from './../atuacao/atuacao.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieComponent } from './movie.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieRoutingModule } from './movie.routing.module';
-import { MovieService } from './movie.service';
-import { EditComponent } from '../edit/edit.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SearchFilterPipe } from '../search-filter.pipe';
 
 
 @NgModule({
   declarations: [
     MovieComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MovieEditComponent,
+    SearchFilterPipe 
   ],
   imports: [
     CommonModule,
     MovieRoutingModule,
+    AtuacaoModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers:[  ],
-  exports: []
+  exports: [ReactiveFormsModule]
 })
 export class MovieModule { }

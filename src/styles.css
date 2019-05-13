@@ -13,3 +13,23 @@
     margin: 0 auto;
 
 }
+
+body{
+    background-color: rgb(238, 196, 255);
+
+}
+.btn-group-sm.btn, .btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    margin-right: 12px;
+}
+
+.form-inline label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    margin-right: 10px;
+}
